@@ -7,18 +7,19 @@ const filtro = document.querySelector(".filtrar-tudo")
 
 function showall(productsArray) {
     let Myli = '';
-    productsArray = menuOptions.forEach(product => {
+    productsArray.forEach(product => {
         Myli += `
          <li>
-            <img src= ${product.src}> 
-            <p>${product.name}> </p>
-            <p class = "priceitem" >$ ${product.price} </p>
+            <img src="${product.src}"> 
+            <p>${product.name}</p>
+            <p class="priceitem">$ ${product.price}</p>
          </li>
          `;
     });
 
     list.innerHTML = Myli;
 }
+
 
 function descont() {
     const descontando = menuOptions.map(prices => {
@@ -46,9 +47,10 @@ list.textContent = soma;
 
 function filtros() {
     const filtrando = menuOptions.filter((valor) => valor.vegan === true);
+    list.innerHTML = filtrando;
     showall(filtrando);
     console.log(filtrando);
-  
+    return filtrando
   }
 
 
